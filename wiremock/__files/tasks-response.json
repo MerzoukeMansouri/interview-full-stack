@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Buy groceries",
+    "description": "Milk, bread, and eggs",
+    "completed": false
+  },
+  {
+    "title": "Finish homework",
+    "description": "Math and science",
+    "completed": true
+  }
+]

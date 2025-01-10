@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/tasks",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.title"
+      },
+      {
+        "matchesJsonPath": "$.description"
+      }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "bodyFileName": "task-created-response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
