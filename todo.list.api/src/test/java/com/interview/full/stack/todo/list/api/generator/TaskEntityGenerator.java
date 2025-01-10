@@ -9,7 +9,7 @@ import java.util.List;
 @UtilityClass
 public class TaskEntityGenerator {
 
-    private EasyRandom generator = new EasyRandom();
+    private final EasyRandom generator = new EasyRandom();
 
     public static TaskEntity generateSimpleTaskEntity() {
         return generator.nextObject(TaskEntity.class);
