@@ -5,8 +5,6 @@ import com.interview.full.stack.todo.list.api.dto.TaskDTO;
 import com.interview.full.stack.todo.list.api.payload.TaskPayload;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static com.interview.full.stack.todo.list.api.generator.TaskPayloadGenerator.generateSimpleTaskPayload;
 import static org.assertj.core.api.Assertions.assertThat;
 
