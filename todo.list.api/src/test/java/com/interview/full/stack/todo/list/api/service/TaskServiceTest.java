@@ -14,8 +14,11 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import static com.interview.full.stack.todo.list.api.generator.TaskEntityGenerator.generateSimpleTaskEntities;
+import static com.interview.full.stack.todo.list.api.generator.TaskEntityGenerator.generateSimpleTaskEntity;
+import static com.interview.full.stack.todo.list.api.generator.TaskPayloadGenerator.generateSimpleTaskPayload;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -47,5 +50,19 @@ class TaskServiceTest {
                     assertEquals(taskEntity.isCompleted(), taskDTO.isCompleted(), "Task completed mismatch at index " + i);
                 });
 
+    }
+
+    @Test
+    @DisplayName("Should create a task")
+    void should_create_task() {
+        var taskEntity = generateSimpleTaskEntity();
+        when(taskRepository.save(any())).thenReturn(taskEntity);
+
+        TaskDTO taskDTO = taskService.createTask(generateSimpleTaskPayload());
+
+        assertNotNull(taskDTO, "Task should not be null");
+        assertEquals(taskEntity.getTitle(), taskDTO.getTitle(), "Task title mismatch");
+        assertEquals(taskEntity.getDescription(), taskDTO.getDescription(), "Task description mismatch");
+        assertEquals(taskEntity.isCompleted(), taskDTO.isCompleted(), "Task completed mismatch");
     }
 }
