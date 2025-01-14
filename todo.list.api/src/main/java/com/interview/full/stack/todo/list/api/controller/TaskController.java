@@ -29,9 +29,4 @@ public class TaskController {
         return taskService.getTasks();
     }
 
-    @PostMapping("")
-    public TaskDTO createTask(@RequestBody @Valid TaskPayload payload) {
-        return taskService.createTask(payload);
-    }
-
 }
